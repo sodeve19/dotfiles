@@ -40,7 +40,7 @@ let mapleader=','
 " Custom maps.
 noremap <Leader>w :update<Return>
 noremap <Leader>s :wall<Return>
-noremap <Leader>q :bdelete!<Return>
+noremap <Leader>q :bdelete<Return>
 noremap <Leader>a :edit #<Return>
 noremap <Leader>r :edit!<Return>
 
@@ -49,18 +49,19 @@ vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
+" Color scheme.
 syntax enable
 set background=dark
 let base16colorspace=256
 colorscheme base16-solarized
-hi CursorLine guibg=#003F30
-hi Cursor guibg=Green
+
+" Current line.
+set cursorline
+highlight CursorLine guibg=#003F30
+highlight Cursor guibg=Green
 
 " Associate file extensions.
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
-
-" Word separators.
-:set iskeyword-=_
 
 " Highlighting and completion for MiniTest.
 set completefunc=syntaxcomplete#Complete
@@ -76,7 +77,6 @@ if has('gui_macvim')
 endif
 
 set encoding=utf-8
-set cursorline
 set ruler
 set laststatus=2
 set cmdheight=2
@@ -90,6 +90,7 @@ set hlsearch
 set ignorecase
 set smartcase
 set incsearch
+highlight Search ctermbg=28 ctermfg=0
 
 " Clear search with Escape key.
 nnoremap <Esc> :nohlsearch<Return><Esc>
@@ -109,9 +110,9 @@ set shiftround
 set expandtab
 
 " Line numbers.
+set relativenumber
 set number
 set numberwidth=5
-set relativenumber
 set scrolloff=5
 
 " CtrlP settings.
@@ -124,9 +125,7 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 
 " vim-airline settings.
 let g:airline_theme='powerlineish'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_section_z=''
+let g:airline_powerline_fonts = 1
 
 " vim-indent-guides settings.
 "let g:indent_guides_enable_on_vim_startup=1
@@ -144,12 +143,6 @@ set splitright
 " All splits at least 1 line and current one 10 lines.
 set winminheight=1
 set winheight=10
-
-" Quicker window movement.
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
 
 " Remove menu bar, toolbar, and right and left scroll bars.
 set guioptions-=m

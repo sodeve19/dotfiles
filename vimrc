@@ -125,9 +125,7 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 
 " vim-airline settings.
 let g:airline_theme='powerlineish'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_section_z=''
+let g:airline_powerline_fonts = 1
 
 " vim-indent-guides settings.
 "let g:indent_guides_enable_on_vim_startup=1
